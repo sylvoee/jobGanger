@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
     <title>
-      JobGanger
+     {{$title}}
     </title>
 
     <!-- Bootstrap core CSS -->
@@ -66,6 +66,7 @@ https://templatemo.com/tm-570-chain-app-dev
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section"><a href="/" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="/listing">Job Listing</a></li>
               <li class="scroll-to-section"><a href="/about">About</a></li>
               <li class="scroll-to-section"><a href="/register">Register Here</a></li>
               <li><div class="gradient-button"><a id="modal_trigger" href="#modal"><i class="fa fa-sign-in-alt"></i> Sign In Now</a></div></li>

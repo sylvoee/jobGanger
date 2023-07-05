@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing ;
+use App\Http\Controllers\ListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,36 +20,27 @@ Route::get('/welcome', function () {
 });
 
 Route::get('/', function () {
-    return view('index');
+    return view('index', ['title'=> 'Home']);
 });
 
 Route::get('/about', function () {
-    return view('about');
+    return view('about', ['title'=> 'About']);
 });
 
 Route::get('/register', function () {
-    return view('register');
+    return view('register', ['title'=> 'Register']);
 });
 
 Route::get('/login', function () {
-    return view('login');
+    return view('login', ['title'=> 'Login']);
 });
 
 Route::get('/post-job', function () {
-    return view('postJob');
+    return view('postJob', ['title'=> 'Post Job']);
 });
 
-Route::get('/listing', function(){
-    return view('listing', [
-    'listing' => Listing::all() 
-
-     
-
-     ]) ;
-});
+Route::get('/listing',[ListingController::class, 'index'] );
 
 // Single Listing
 
-Route::get('/listing/{id}', function($id){
-  return view('single-listing', ['listing' => Listing::find($id)  ]);
-});
+Route::get('/listing/{id}', [ListingController::class, 'show']);
