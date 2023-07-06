@@ -12,7 +12,7 @@ use App\Models\Listing ;
         $params = request()->tag;
         return view('Listings.index', [
         //   This can also work but not sorted  'listing' => Listing::all() ,   
-        'listing' => Listing::latest()->filter(($params))->get() ,
+        'listing' => Listing::latest()->filter(request(['tag']))->get() ,
         'title'=> 'Job Listing'
          ]) ; 
     }
