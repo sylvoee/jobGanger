@@ -9,16 +9,16 @@ use App\Models\Listing ;
 {
     // Home Listing
     public function index(){
+        $params = request()->tag;
         return view('Listings.index', [
-        'listing' => Listing::all() ,
+        //   This can also work but not sorted  'listing' => Listing::all() ,   
+        'listing' => Listing::latest()->filter(($params))->get() ,
         'title'=> 'Job Listing'
-         ]) ;
-
-        
+         ]) ; 
     }
 
-    // Show all listings
 
+    // Show all listings
     public function show($id){
         $result = Listing::find($id) ;  
         return view('Listings.show', ['listing' => $result, 'title' =>$result['title'] ]);
